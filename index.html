@@ -84,6 +84,20 @@
       50% { transform: translateY(-30px) rotate(5deg); }
       100% { transform: translateY(0px) rotate(0deg); }
     }
+    @media (max-width: 768px) {
+  .floating {
+    opacity: 0.5; /* deixa mais suave no mobile */
+    z-index: 0;    /* envia pra trás do conteúdo */
+  }
+
+  /* Reposicionamento pra não atrapalhar o texto */
+  .float1 { top: 10%; left: 2%; }
+  .float2 { top: 15%; right: 3%; }
+  .float3 { bottom: 8%; left: 5%; }
+  .float4 { top: 60%; left: 65%; }
+  .float5 { top: 35%; right: 5%; }
+  .float6 { bottom: 12%; left: 15%; }
+}
   </style>
 </head>
 <body>
