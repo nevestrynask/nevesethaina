@@ -77,7 +77,7 @@
     .float3 { bottom: 10%; left: 15%; animation-delay: 6s; }
     .float4 { top: 60%; left: 75%; animation-delay: 1s; }
     .float5 { top: 30%; right: 15%; animation-delay: 4s; }
-    .float6 { bottom: 20%; left: 25%; animation-delay: 6s; }
+    .float6 { bottom: 35%; left: 11%; animation-delay: 6s; }
 
     @keyframes float {
       0% { transform: translateY(0px) rotate(0deg); }
@@ -96,19 +96,18 @@
   .float3 { bottom: 8%; left: 5%; }
   .float4 { top: 60%; left: 65%; }
   .float5 { top: 35%; right: 5%; }
-  .float6 { bottom: 12%; left: 15%; }
+  .float6 { bottom: 12%; left: 5%; }
 }
   </style>
 </head>
 <body>
-  <div style="position: relative; z-index: 2; text-align: center;">
-    <h1>João e Thainá 💘</h1>
-    <h2>Desde a primeira vez que te vi, meu coração bateu forte por você ❤</h2>
-    <div style="font-family: 'Dancing Script', cursive; font-size: 2em; margin-bottom: 10px;">
-      Eu sou completamente apaixonado por você há
-    </div>
-    <div id="contador">Carregando...</div>
+  <h1>João e Thainá 💘</h1>
+  <h2>Desde a primeira vez que te vi, meu coração bateu forte por você ❤</h2>
+  <div style="font-family: 'Dancing Script', cursive; font-size: 2em; margin-bottom: 10px;">
+    Eu sou completamente apaixonado por você há
   </div>
+  <div id="contador">Carregando...</div>
+  
   <div class="hearts">💗 💖 💕 💞 💓</div>
 
 <!-- Fotos flutuantes -->
@@ -142,12 +141,83 @@
   </script>
   <div style="position: relative; z-index: 2; padding: 100px 20px; background: rgba(255, 255, 255, 0.1); margin-top: 100px;">
     <h2 style="color: #fff; font-family: 'Dancing Script', cursive; font-size: 2.5em;">
-      Nossos momentos inesquecíveis 💑
+      Nossos momentos inesquecíveis 🧑‍❤️‍👩
     </h2>
     <p style="max-width: 600px; margin: auto; font-size: 1.2em;">
       Desde a primeira troca de olhares até os abraços mais apertados... cada segundo com você é um presente que a vida me deu 💝
     </p>
   </div>
-  
+
+  <!-- Cartinha de amor -->
+<div style="margin-top: 100px; padding: 60px 20px; background: rgba(255, 240, 245, 0.15); border-top: 2px dashed #ffc0cb70; max-width: 800px; border-radius: 20px;">
+  <h2 style="font-family: 'Dancing Script', cursive; font-size: 2.8em; color: #ffe0f0; margin-bottom: 30px;">
+    Uma cartinha só pra você, meu amor 💌
+  </h2>
+  <p style="font-family: 'Dancing Script', cursive; font-size: 1.7em; color: #fff; line-height: 1.8; text-align: justify; padding: 0 15px;">
+    Amor da minha vida, Thainá... 💖<br><br>
+    Todos os dias que passo ao seu lado são como páginas de um livro escrito pelas estrelas. O seu sorriso é a luz que ilumina o meu caminho, e o som da sua voz é a melodia que embala meu coração.<br><br>
+    Obrigado por existir, por me escolher e por fazer da minha vida um lugar mais bonito. Eu prometo cuidar de você, te respeitar e te amar com todo meu coração. Para sempre, seu Joãozinho. 💘
+  </p>
+  <div style="margin-top: 30px; font-size: 2em; animation: pulse 1.5s infinite;">
+    ❤️
+  </div>
+</div>
+
+  <!-- Corações caindo -->
+<canvas id="canvas-corações" style="position: fixed; top: 0; left: 0; pointer-events: none; z-index: 1;"></canvas>
+<script>
+  const canvas = document.getElementById("canvas-corações");
+  const ctx = canvas.getContext("2d");
+  let hearts = [];
+
+  function redimensionarCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+
+  window.addEventListener("resize", redimensionarCanvas);
+  redimensionarCanvas();
+
+  function criarCoração() {
+    const x = Math.random() * canvas.width;
+    const y = -20;
+    const size = Math.random() * 10 + 10;
+    const speed = Math.random() * 1 + 0.5;
+    hearts.push({ x, y, size, speed });
+  }
+
+  function desenharCorações() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = "#ffb6c1";
+    hearts.forEach((coração) => {
+      ctx.beginPath();
+      ctx.moveTo(coração.x, coração.y);
+      ctx.bezierCurveTo(
+        coração.x - coração.size / 2, coração.y - coração.size / 2,
+        coração.x - coração.size, coração.y + coração.size / 3,
+        coração.x, coração.y + coração.size
+      );
+      ctx.bezierCurveTo(
+        coração.x + coração.size, coração.y + coração.size / 3,
+        coração.x + coração.size / 2, coração.y - coração.size / 2,
+        coração.x, coração.y
+      );
+      ctx.fill();
+      coração.y += coração.speed;
+    });
+
+    // Remove corações que saíram da tela
+    hearts = hearts.filter(coração => coração.y < canvas.height + 20);
+  }
+
+  function animar() {
+    desenharCorações();
+    requestAnimationFrame(animar);
+  }
+
+  setInterval(criarCoração, 300);
+  animar();
+</script>
+
 </body>
 </html>
