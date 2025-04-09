@@ -8,6 +8,18 @@
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Great+Vibes&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
   <style>
 
+.espaco-mobile {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .espaco-mobile {
+    display: block;
+    height: 80px; /* altura do espaço em branco */
+  }
+}
+
+
     .carrossel {
   width: 100%;
   overflow-x: auto;
@@ -169,6 +181,9 @@
     atualizarContador();
     setInterval(atualizarContador, 1000);
   </script>
+
+<div class="espaco-mobile"></div>
+
   <div style="position: relative; z-index: 2; padding: 100px 20px; background: rgba(255, 255, 255, 0.1); margin-top: 100px;">
     <h2 style="color: #fff; font-family: 'Dancing Script', cursive; font-size: 2.5em;">
       Nossos momentos inesquecíveis 🧑‍❤️‍👩
