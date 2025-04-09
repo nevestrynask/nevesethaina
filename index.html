@@ -145,14 +145,6 @@
   
   <div class="hearts">💗 💖 💕 💞 💓</div>
 
-<!-- Fotos flutuantes -->
-<img src="https://i.imgur.com/4EIklJk.jpeg" class="floating float1">
-<img src="https://i.imgur.com/cWA0VkC.jpeg" class="floating float2">
-<img src="https://i.imgur.com/FhjNUJO.jpeg" class="floating float3">
-<img src="https://i.imgur.com/LP6IOel.jpeg" class="floating float4">
-<img src="https://i.imgur.com/8tkdAJz.jpeg" class="floating float5">
-<img src="https://i.imgur.com/BPpEEaX.jpeg" class="floating float6">
-
 
   <script>
     const dataInicial = new Date("2024-09-07T00:00:00");
@@ -315,14 +307,9 @@ João
   });
 
   btnNao.addEventListener('mouseover', () => {
-    const largura = window.innerWidth - btnNao.offsetWidth;
-    const altura = window.innerHeight - btnNao.offsetHeight;
-    const novoX = Math.random() * largura;
-    const novoY = Math.random() * altura;
-    btnNao.style.position = 'absolute';
-    btnNao.style.left = `${novoX}px`;
-    btnNao.style.top = `${novoY}px`;
-  });
+  btnNao.style.display = 'none';
+});
+
 </script>
 
 <!-- Citação final -->
