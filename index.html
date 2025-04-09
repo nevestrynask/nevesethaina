@@ -46,6 +46,8 @@
       border-radius: 20px;
       box-shadow: 0 0 15px rgba(255, 192, 203, 0.5);
       border: 2px solid #ffc0cb80;
+      z-index: 2;
+      position: relative;
     }
 
     .hearts {
@@ -70,6 +72,7 @@
       border-radius: 20px;
       box-shadow: 0 0 10px rgba(255, 192, 203, 0.6);
       animation: float 15s infinite ease-in-out;
+      z-index: 0;
     }
 
     .float1 { top: 10%; left: 5%; animation-delay: 0s; }
@@ -84,20 +87,20 @@
       50% { transform: translateY(-30px) rotate(5deg); }
       100% { transform: translateY(0px) rotate(0deg); }
     }
-    @media (max-width: 768px) {
-  .floating {
-    opacity: 0.5; /* deixa mais suave no mobile */
-    z-index: 0;    /* envia pra trás do conteúdo */
-  }
 
-  /* Reposicionamento pra não atrapalhar o texto */
-  .float1 { top: 10%; left: 2%; }
-  .float2 { top: 15%; right: 3%; }
-  .float3 { bottom: 8%; left: 5%; }
-  .float4 { top: 60%; left: 65%; }
-  .float5 { top: 35%; right: 5%; }
-  .float6 { bottom: 12%; left: 5%; }
-}
+    @media (max-width: 768px) {
+      .floating {
+        opacity: 0.5;
+        z-index: 0;
+      }
+
+      .float1 { top: 10%; left: 2%; }
+      .float2 { top: 15%; right: 3%; }
+      .float3 { bottom: 8%; left: 5%; }
+      .float4 { top: 60%; left: 65%; }
+      .float5 { top: 35%; right: 5%; }
+      .float6 { bottom: 12%; left: 5%; }
+    }
   </style>
 </head>
 <body>
@@ -106,18 +109,17 @@
   <div style="font-family: 'Dancing Script', cursive; font-size: 2em; margin-bottom: 10px;">
     Eu sou completamente apaixonado por você há
   </div>
-  <div id="contador" style="z-index: 2; position: relative;">Carregando...</div>
-  
+  <div id="contador">Carregando...</div>
+
   <div class="hearts">💗 💖 💕 💞 💓</div>
 
-<!-- Fotos flutuantes -->
-<img src="https://i.imgur.com/4EIklJk.jpeg" class="floating float1">
-<img src="https://i.imgur.com/cWA0VkC.jpeg" class="floating float2">
-<img src="https://i.imgur.com/FhjNUJO.jpeg" class="floating float3">
-<img src="https://i.imgur.com/LP6IOel.jpeg" class="floating float4">
-<img src="https://i.imgur.com/8tkdAJz.jpeg" class="floating float5">
-<img src="https://i.imgur.com/BPpEEaX.jpeg" class="floating float6">
-
+  <!-- Fotos flutuantes -->
+  <img src="https://i.imgur.com/4EIklJk.jpeg" class="floating float1">
+  <img src="https://i.imgur.com/cWA0VkC.jpeg" class="floating float2">
+  <img src="https://i.imgur.com/FhjNUJO.jpeg" class="floating float3">
+  <img src="https://i.imgur.com/LP6IOel.jpeg" class="floating float4">
+  <img src="https://i.imgur.com/8tkdAJz.jpeg" class="floating float5">
+  <img src="https://i.imgur.com/BPpEEaX.jpeg" class="floating float6">
 
   <script>
     const dataInicial = new Date("2024-09-07T00:00:00");
@@ -139,6 +141,7 @@
     atualizarContador();
     setInterval(atualizarContador, 1000);
   </script>
+
   <div style="position: relative; z-index: 2; padding: 100px 20px; background: rgba(255, 255, 255, 0.1); margin-top: 100px;">
     <h2 style="color: #fff; font-family: 'Dancing Script', cursive; font-size: 2.5em;">
       Nossos momentos inesquecíveis 🧑‍❤️‍👩
@@ -149,83 +152,80 @@
   </div>
 
   <!-- Cartinha de amor -->
-  <div style="margin-top: 100px; padding: 60px 20px; background: rgba(83, 83, 83, 0.336); border-top: 2px dashed #ffc0cb70; max-width: 800px; border-radius: 20px;">
-  <h2 style="font-family: 'Dancing Script', cursive; font-size: 2.8em; color: #ffe0f0; margin-bottom: 30px;">
-    Uma cartinha só pra você, meu amor 💌
-  </h2>
-  <p style="font-family: 'Dancing Script', cursive; font-size: 1.7em; color: #fff; line-height: 1.8; text-align: justify; padding: 0 15px;">
-    Te conhecer foi como encontrar um pedaço do meu coração que eu nem sabia que estava faltando. Desde que você chegou, tudo mudou pra melhor. Seu jeito, seu carinho, suas risadas… tudo em você me encanta e me faz querer ser alguém melhor todos os dias.<br><br>
+  <div style="margin-top: 100px; padding: 60px 20px; background: rgba(255, 240, 245, 0.15); border-top: 2px dashed #ffc0cb70; max-width: 800px; border-radius: 20px; position: relative; z-index: 2;">
+    <h2 style="font-family: 'Dancing Script', cursive; font-size: 2.8em; color: #ffe0f0; margin-bottom: 30px;">
+      Uma cartinha só pra você, meu amor 💌
+    </h2>
+    <p style="font-family: 'Dancing Script', cursive; font-size: 1.7em; color: #fff; line-height: 1.8; text-align: justify; padding: 0 15px; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);">
+      Te conhecer foi como encontrar um pedaço do meu coração que eu nem sabia que estava faltando. Desde que você chegou, tudo mudou pra melhor. Seu jeito, seu carinho, suas risadas… tudo em você me encanta e me faz querer ser alguém melhor todos os dias.<br><br>
 
-Eu amo cada detalhe nosso — desde as conversas bobas até os silêncios confortáveis. Amo como a gente se entende com o olhar, como teu abraço é meu lugar favorito no mundo, e como seu sorriso tem o poder de acalmar qualquer tempestade.<br><br>
+      Eu amo cada detalhe nosso — desde as conversas bobas até os silêncios confortáveis. Amo como a gente se entende com o olhar, como teu abraço é meu lugar favorito no mundo, e como seu sorriso tem o poder de acalmar qualquer tempestade.<br><br>
 
-Prometo cuidar de você com todo meu amor, respeitar teus sonhos, segurar tua mão nos dias bons e principalmente nos difíceis. Quero viver muitas histórias com você, criar lembranças, realizar planos, e principalmente: te fazer feliz.<br><br>
+      Prometo cuidar de você com todo meu amor, respeitar teus sonhos, segurar tua mão nos dias bons e principalmente nos difíceis. Quero viver muitas histórias com você, criar lembranças, realizar planos, e principalmente: te fazer feliz.<br><br>
 
-Te amo mais do que palavras podem dizer. E isso só cresce, a cada dia, a cada detalhe, a cada “eu te amo” que sai do meu coração direto pro teu.<br><br>
+      Te amo mais do que palavras podem dizer. E isso só cresce, a cada dia, a cada detalhe, a cada “eu te amo” que sai do meu coração direto pro teu.<br><br>
 
-Com todo o meu amor,<br><br>
-João
-
-  </p>
-  <div style="margin-top: 30px; font-size: 2em; animation: pulse 1.5s infinite;">
-    ❤️
+      Com todo o meu amor,<br><br>
+      João
+    </p>
+    <div style="margin-top: 30px; font-size: 2em; animation: pulse 1.5s infinite;">
+      ❤️
+    </div>
   </div>
-</div>
 
   <!-- Corações caindo -->
-<canvas id="canvas-corações" style="position: fixed; top: 0; left: 0; pointer-events: none; z-index: 1;"></canvas>
-<script>
-  const canvas = document.getElementById("canvas-corações");
-  const ctx = canvas.getContext("2d");
-  let hearts = [];
+  <canvas id="canvas-corações" style="position: fixed; top: 0; left: 0; pointer-events: none; z-index: 1;"></canvas>
+  <script>
+    const canvas = document.getElementById("canvas-corações");
+    const ctx = canvas.getContext("2d");
+    let hearts = [];
 
-  function redimensionarCanvas() {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-  }
+    function redimensionarCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
 
-  window.addEventListener("resize", redimensionarCanvas);
-  redimensionarCanvas();
+    window.addEventListener("resize", redimensionarCanvas);
+    redimensionarCanvas();
 
-  function criarCoração() {
-    const x = Math.random() * canvas.width;
-    const y = -20;
-    const size = Math.random() * 10 + 10;
-    const speed = Math.random() * 1 + 0.5;
-    hearts.push({ x, y, size, speed });
-  }
+    function criarCoração() {
+      const x = Math.random() * canvas.width;
+      const y = -20;
+      const size = Math.random() * 10 + 10;
+      const speed = Math.random() * 1 + 0.5;
+      hearts.push({ x, y, size, speed });
+    }
 
-  function desenharCorações() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    ctx.fillStyle = "#ffb6c1";
-    hearts.forEach((coração) => {
-      ctx.beginPath();
-      ctx.moveTo(coração.x, coração.y);
-      ctx.bezierCurveTo(
-        coração.x - coração.size / 2, coração.y - coração.size / 2,
-        coração.x - coração.size, coração.y + coração.size / 3,
-        coração.x, coração.y + coração.size
-      );
-      ctx.bezierCurveTo(
-        coração.x + coração.size, coração.y + coração.size / 3,
-        coração.x + coração.size / 2, coração.y - coração.size / 2,
-        coração.x, coração.y
-      );
-      ctx.fill();
-      coração.y += coração.speed;
-    });
+    function desenharCorações() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = "#ffb6c1";
+      hearts.forEach((coração) => {
+        ctx.beginPath();
+        ctx.moveTo(coração.x, coração.y);
+        ctx.bezierCurveTo(
+          coração.x - coração.size / 2, coração.y - coração.size / 2,
+          coração.x - coração.size, coração.y + coração.size / 3,
+          coração.x, coração.y + coração.size
+        );
+        ctx.bezierCurveTo(
+          coração.x + coração.size, coração.y + coração.size / 3,
+          coração.x + coração.size / 2, coração.y - coração.size / 2,
+          coração.x, coração.y
+        );
+        ctx.fill();
+        coração.y += coração.speed;
+      });
 
-    // Remove corações que saíram da tela
-    hearts = hearts.filter(coração => coração.y < canvas.height + 20);
-  }
+      hearts = hearts.filter(coração => coração.y < canvas.height + 20);
+    }
 
-  function animar() {
-    desenharCorações();
-    requestAnimationFrame(animar);
-  }
+    function animar() {
+      desenharCorações();
+      requestAnimationFrame(animar);
+    }
 
-  setInterval(criarCoração, 300);
-  animar();
-</script>
-
+    setInterval(criarCoração, 300);
+    animar();
+  </script>
 </body>
 </html>
