@@ -7,49 +7,53 @@
   <title>João e Thainá 💘</title>
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Great+Vibes&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --cor-principal: #ffc0cb;
-      --cor-secundaria: #ffe0f0;
-      --sombra-rosa: 0 0 15px rgba(255, 192, 203, 0.5);
-    }
-    .espaco-mobile {
-      display: none;
-    }
-    @media (max-width: 768px) {
-      .espaco-mobile {
-        display: block;
-        height: 80px;
-      }
-    }
+
+.espaco-mobile {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .espaco-mobile {
+    display: block;
+    height: 80px; /* altura do espaço em branco */
+  }
+}
+
+
     .carrossel {
-      width: 100%;
-      overflow-x: auto;
-      white-space: nowrap;
-      padding: 20px 0;
-      scroll-snap-type: x mandatory;
-      -webkit-overflow-scrolling: touch;
-      background: rgba(255, 255, 255, 0.1);
-    }
-    .carrossel-container {
-      display: inline-flex;
-      gap: 15px;
-      padding: 0 15px;
-    }
-    .carrossel-container img {
-      height: 250px;
-      border-radius: 20px;
-      scroll-snap-align: center;
-      box-shadow: var(--sombra-rosa);
-      transition: transform 0.3s ease;
-    }
-    .carrossel-container img:hover {
-      transform: scale(1.05);
-    }
-    @media (max-width: 768px) {
-      .carrossel-container img {
-        height: 180px;
-      }
-    }
+  width: 100%;
+  overflow-x: auto;
+  white-space: nowrap;
+  padding: 20px 0;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.carrossel-container {
+  display: inline-flex;
+  gap: 15px;
+  padding: 0 15px;
+}
+
+.carrossel-container img {
+  height: 250px;
+  border-radius: 20px;
+  scroll-snap-align: center;
+  box-shadow: 0 0 15px rgba(255, 192, 203, 0.5);
+  transition: transform 0.3s ease;
+}
+
+.carrossel-container img:hover {
+  transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+  .carrossel-container img {
+    height: 180px;
+  }
+}
+
     body {
       font-family: 'Quicksand', sans-serif;
       background: url('https://i.imgur.com/bn1WkYx.jpeg') no-repeat center center fixed;
@@ -68,39 +72,45 @@
       text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
       backdrop-filter: blur(2px);
     }
+
     h1 {
       font-family: 'Great Vibes', cursive;
       font-size: 4em;
       margin: 0.2em 0;
-      color: var(--cor-secundaria);
+      color: #ffe0f0;
     }
+
     h2 {
       font-size: 1.4em;
       margin: 0.5em 0 1.5em;
       font-weight: normal;
-      color: var(--cor-principal);
+      color: #ffd6e8;
     }
+
     #contador {
       font-size: 2.2em;
       font-weight: bold;
       background-color: rgba(255, 255, 255, 0.2);
       padding: 15px 30px;
       border-radius: 20px;
-      box-shadow: var(--sombra-rosa);
+      box-shadow: 0 0 15px rgba(255, 192, 203, 0.5);
       border: 2px solid #ffc0cb80;
     }
+
     .hearts {
       position: absolute;
       bottom: 20px;
       font-size: 1.2em;
-      color: var(--cor-principal);
+      color: #ffcce5;
       animation: pulse 2s infinite ease-in-out;
     }
+
     @keyframes pulse {
       0% { transform: scale(1); opacity: 1; }
       50% { transform: scale(1.2); opacity: 0.8; }
       100% { transform: scale(1); opacity: 1; }
     }
+
     .floating {
       position: absolute;
       width: 100px;
@@ -110,179 +120,83 @@
       box-shadow: 0 0 10px rgba(255, 192, 203, 0.6);
       animation: float 15s infinite ease-in-out;
     }
+
+    .float1 { top: 10%; left: 5%; animation-delay: 0s; }
+    .float2 { top: 20%; right: 10%; animation-delay: 3s; }
+    .float3 { bottom: 10%; left: 15%; animation-delay: 6s; }
+    .float4 { top: 60%; left: 75%; animation-delay: 1s; }
+    .float5 { top: 30%; right: 15%; animation-delay: 4s; }
+    .float6 { bottom: 35%; left: 11%; animation-delay: 6s; }
+
     @keyframes float {
       0% { transform: translateY(0px) rotate(0deg); }
       50% { transform: translateY(-30px) rotate(5deg); }
       100% { transform: translateY(0px) rotate(0deg); }
     }
     @media (max-width: 768px) {
-      .floating { opacity: 0.5; z-index: 0; }
-    }
+  .floating {
+    opacity: 0.5; /* deixa mais suave no mobile */
+    z-index: 0;    /* envia pra trás do conteúdo */
+  }
 
-    /* Estilos para a nova seção de surpresa */
-    .section-surpresa {
-        padding: 60px 20px;
-        background: rgba(255, 255, 255, 0.1);
-        border-radius: 20px;
-        box-shadow: var(--sombra-rosa);
-        position: relative;
-        overflow: hidden;
-        margin: 100px auto;
-        max-width: 800px;
-        transition: transform 0.5s ease-in-out;
-    }
-    .section-surpresa .surpresa-texto {
-        display: none;
-        opacity: 0;
-        transition: opacity 0.5s ease-in-out;
-        font-family: 'Dancing Script', cursive;
-        font-size: 1.5em;
-        margin-top: 20px;
-        color: var(--cor-secundaria);
-        text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
-    }
-    .section-surpresa:hover .surpresa-texto {
-        display: block;
-        opacity: 1;
-    }
-
-    /* Animação de fade-in para as seções */
-    .fade-in {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 1s ease-out, transform 1s ease-out;
-    }
-    .fade-in.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* Estilos para as citações rotativas */
-    #citacao {
-      margin-top: 80px;
-      padding: 40px 20px;
-      font-family: 'Dancing Script', cursive;
-      font-size: 1.8em;
-      color: #ffe4ec;
-      background: rgba(0, 0, 0, 0.3);
-      border-top: 2px dashed #ffc0cb80;
-      text-align: center;
-      max-width: 800px;
-      margin-left: auto;
-      margin-right: auto;
-      border-radius: 20px;
-      height: 150px;
-      position: relative;
-    }
-    #citacao .citacao-texto {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 90%;
-        opacity: 0;
-        transition: opacity 1s ease-in-out;
-    }
-
-    /* Estilos para partículas */
-    .particula {
-      position: fixed;
-      background-color: var(--cor-principal);
-      border-radius: 50%;
-      opacity: 0;
-      animation: particula-animacao 10s infinite;
-      z-index: -1;
-      pointer-events: none;
-    }
-
-    @keyframes particula-animacao {
-      0% {
-        transform: translateY(0) scale(0);
-        opacity: 0;
-      }
-      20% {
-        opacity: 0.8;
-      }
-      100% {
-        transform: translateY(-100vh) scale(1.5);
-        opacity: 0;
-      }
-    }
-    /* Estilo para a animação do aniversário */
-    #celebracao-canvas {
-        position: fixed;
-        top: 0;
-        left: 0;
-        display: none;
-        z-index: 100;
-        pointer-events: none;
-    }
+  /* Reposicionamento pra não atrapalhar o texto */
+  .float1 { top: 10%; left: 2%; }
+  .float2 { top: 15%; right: 3%; }
+  .float3 { bottom: 8%; left: 5%; }
+  .float4 { top: 60%; left: 65%; }
+  .float5 { top: 35%; right: 5%; }
+  .float6 { bottom: 12%; left: 5%; }
+}
   </style>
 </head>
 <body>
 
-  <h1 id="main-title">João e Thainá 💘</h1>
-  <h2>O nosso amor é a poesia que a vida estava esperando escrever.</h2>
-  <div class="fade-in">
-      <div id="contador-text" style="font-family: 'Dancing Script', cursive; font-size: 2em; margin-bottom: 10px;">
-        Eu sou completamente apaixonado por você há
-      </div>
-      <div id="contador" style="z-index: 2; position: relative;">Carregando...</div>
+  <h1>João e Thainá 💘</h1>
+  <h2>Desde a primeira vez que te vi, meu coração bateu forte por você ❤</h2>
+  <div style="font-family: 'Dancing Script', cursive; font-size: 2em; margin-bottom: 10px;">
+    Eu sou completamente apaixonado por você há
   </div>
+  <div id="contador" style="z-index: 2; position: relative;">Carregando...</div>
   
   <div class="hearts">💗 💖 💕 💞 💓</div>
 
 
   <script>
     const dataInicial = new Date("2024-09-07T00:00:00");
-    const dataAniversario = new Date("2025-09-07T00:00:00");
-    const mainTitle = document.getElementById("main-title");
-    const contadorTextElement = document.getElementById("contador-text");
-    const contadorElement = document.getElementById("contador");
-    let isCelebrating = false;
 
     function atualizarContador() {
       const agora = new Date();
-      
-      // Checa se o aniversário chegou
-      if (agora >= dataAniversario && !isCelebrating) {
-          mainTitle.textContent = "Feliz 1 Ano de Namoro, meu amor! 🎉";
-          contadorTextElement.textContent = "O nosso primeiro ano juntos! ❤️";
-          contadorElement.textContent = "";
-          iniciarCelebracao();
-          isCelebrating = true;
-      } else if (!isCelebrating) {
-          // Lógica do contador normal
-          const diffMs = agora - dataInicial;
-          const segundosTotais = Math.floor(diffMs / 1000);
-          const dias = Math.floor(segundosTotais / 86400);
-          const horas = Math.floor((segundosTotais % 86400) / 3600);
-          const minutos = Math.floor((segundosTotais % 3600) / 60);
-          const segundos = segundosTotais % 60;
+      const diffMs = agora - dataInicial;
 
-          contadorElement.textContent =
-            `${dias} dias, ${horas}h ${minutos}m ${segundos}s`;
-      }
+      const segundosTotais = Math.floor(diffMs / 1000);
+      const dias = Math.floor(segundosTotais / 86400);
+      const horas = Math.floor((segundosTotais % 86400) / 3600);
+      const minutos = Math.floor((segundosTotais % 3600) / 60);
+      const segundos = segundosTotais % 60;
+
+      document.getElementById("contador").textContent =
+        `${dias} dias, ${horas}h ${minutos}m ${segundos}s`;
     }
+
     atualizarContador();
     setInterval(atualizarContador, 1000);
   </script>
 
 <div class="espaco-mobile"></div>
 
-  <div class="section-surpresa fade-in">
+  <div style="position: relative; z-index: 2; padding: 100px 20px; background: rgba(255, 255, 255, 0.1); margin-top: 100px;">
     <h2 style="color: #fff; font-family: 'Dancing Script', cursive; font-size: 2.5em;">
       Nossos momentos inesquecíveis 🧑‍❤️‍👩
     </h2>
     <p style="max-width: 600px; margin: auto; font-size: 1.2em;">
       Desde a primeira troca de olhares até os abraços mais apertados... cada segundo com você é um presente que a vida me deu 💝
     </p>
-    <div class="surpresa-texto">
-      E a cada momento, eu só consigo pensar em uma coisa: o quanto sou sortudo por ter você.
-    </div>
   </div>
 
-  <div class="carrossel fade-in">
+  <!-- Espaço em branco final -->
+<div style="height: 120px; background: rgba(255, 255, 255, 0.1);"></div>
+
+  <div class="carrossel">
     <div class="carrossel-container">
       <img src="https://i.imgur.com/4EIklJk.jpeg" alt="Foto 1">
       <img src="https://i.imgur.com/cWA0VkC.jpeg" alt="Foto 2">
@@ -300,7 +214,8 @@
     </div>
   </div>
 
-  <div class="fade-in" style="margin-top: 100px; padding: 60px 20px; background: rgba(83, 83, 83, 0.336); border-top: 2px dashed #ffc0cb70; max-width: 800px; border-radius: 20px;">
+  <!-- Cartinha de amor -->
+  <div style="margin-top: 100px; padding: 60px 20px; background: rgba(83, 83, 83, 0.336); border-top: 2px dashed #ffc0cb70; max-width: 800px; border-radius: 20px;">
   <h2 style="font-family: 'Dancing Script', cursive; font-size: 2.8em; color: #ffe0f0; margin-bottom: 30px;">
     Uma cartinha só pra você, meu amor 💌
   </h2>
@@ -322,4 +237,146 @@ João
   </div>
 </div>
 
-  <canvas id="canvas-corações" style="position: fixed; top: 0; left: 0; pointer-events: none; z-index:
+  <!-- Corações caindo -->
+<canvas id="canvas-corações" style="position: fixed; top: 0; left: 0; pointer-events: none; z-index: 1;"></canvas>
+<script>
+  const canvas = document.getElementById("canvas-corações");
+  const ctx = canvas.getContext("2d");
+  let hearts = [];
+
+  function redimensionarCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+
+  window.addEventListener("resize", redimensionarCanvas);
+  redimensionarCanvas();
+
+  function criarCoração() {
+    const x = Math.random() * canvas.width;
+    const y = -20;
+    const size = Math.random() * 10 + 10;
+    const speed = Math.random() * 1 + 0.5;
+    hearts.push({ x, y, size, speed });
+  }
+
+  function desenharCorações() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = "#ffb6c1";
+    hearts.forEach((coração) => {
+      ctx.beginPath();
+      ctx.moveTo(coração.x, coração.y);
+      ctx.bezierCurveTo(
+        coração.x - coração.size / 2, coração.y - coração.size / 2,
+        coração.x - coração.size, coração.y + coração.size / 3,
+        coração.x, coração.y + coração.size
+      );
+      ctx.bezierCurveTo(
+        coração.x + coração.size, coração.y + coração.size / 3,
+        coração.x + coração.size / 2, coração.y - coração.size / 2,
+        coração.x, coração.y
+      );
+      ctx.fill();
+      coração.y += coração.speed;
+    });
+
+    // Remove corações que saíram da tela
+    hearts = hearts.filter(coração => coração.y < canvas.height + 20);
+  }
+
+  function animar() {
+    desenharCorações();
+    requestAnimationFrame(animar);
+  }
+
+  setInterval(criarCoração, 300);
+  animar();
+</script>
+
+
+<div style="margin-top: 80px; font-family: 'Dancing Script', cursive; font-size: 2em; color: #fff;">
+  Que bom que você chegou até aqui... 💖 Tenho algo mágico pra te mostrar ✨
+</div>
+
+<!-- Botão surpresa escondido -->
+<div style="margin-top: 60px; z-index: 2;">
+  <button onclick="document.getElementById('pedido-casamento').style.display='block'; this.style.display='none';" style="padding: 15px 25px; font-size: 1.2em; background: #ff69b4; color: white; border: none; border-radius: 15px; cursor: pointer; box-shadow: 0 0 10px rgba(255,105,180,0.5);">
+    Clique aqui se ama MUITO 💘
+  </button>
+</div>
+
+<!-- Área escondida do pedido de casamento -->
+<div id="pedido-casamento" data-aos="zoom-in" style="display: none; position: relative; z-index: 3; padding: 60px 20px; background: rgba(255, 255, 255, 0.425); border-radius: 25px; margin: 60px auto; max-width: 550px; box-shadow: 0 0 25px rgba(255, 105, 180, 0.3); text-align: center;">
+  <h2 style="color: #d8006e; font-family: 'Dancing Script', cursive; font-size: 2.8em; margin-bottom: 30px; text-shadow: 1px 1px 5px rgba(0,0,0,0.1);">
+    Quer casar comigo? 💍
+  </h2>
+  <div style="display: flex; justify-content: center; gap: 30px;">
+    <button id="btn-sim" style="padding: 15px 30px; font-size: 1.2em; border: none; background-color: #ff69b4; color: rgb(255, 255, 255); border-radius: 15px; cursor: pointer; box-shadow: 0 6px 15px rgba(255, 105, 180, 0.6); transition: transform 0.2s;">
+      Sim 💖
+    </button>
+    <button id="btn-nao" style="padding: 15px 30px; font-size: 1.2em; border: none; background-color: #ff6f91; color: rgb(255, 255, 255); border-radius: 15px; cursor: pointer; position: relative; box-shadow: 0 6px 15px rgba(255, 111, 145, 0.5); transition: transform 0.2s;">
+      Não 😢
+    </button>
+  </div>
+  <p id="resposta-sim" style="display: none; margin-top: 40px; font-size: 1.6em; color: #d8006e; font-weight: bold; text-shadow: 1px 1px 3px rgba(0,0,0,0.1);">
+    Aaaaah, você me fez a pessoa mais feliz do mundo! 💘💍
+  </p>
+</div>
+
+
+<script>
+  const btnSim = document.getElementById('btn-sim');
+  const btnNao = document.getElementById('btn-nao');
+  const respostaSim = document.getElementById('resposta-sim');
+
+  btnSim.addEventListener('click', () => {
+    respostaSim.style.display = 'block';
+  });
+
+  btnNao.addEventListener('mouseover', () => {
+  btnNao.style.display = 'none';
+});
+
+</script>
+
+<!-- Citação final -->
+<div style="
+  margin-top: 80px;
+  padding: 40px 20px;
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.8em;
+  color: #ffe4ec;
+  background: rgba(0, 0, 0, 0.3);
+  border-top: 2px dashed #ffc0cb80;
+  text-align: center;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 20px;
+">
+  “Se eu te amasse menos, poderia talvez falar mais sobre isso.”<br>
+  <span style="font-size: 0.8em; display: block; margin-top: 10px;">— Jane Austen</span>
+</div>
+
+<!-- Imagem romântica central pequena -->
+<div style="text-align: center; margin: 60px 20px;">
+  <img src="https://i.imgur.com/Kcwf1Ok.jpeg" alt="Nosso Amor" style="width: 250px; height: auto; border-radius: 20px; box-shadow: 0 8px 20px rgba(255, 105, 180, 0.3);">
+</div>
+
+
+<!-- Seção final destacada -->
+<div data-aos="fade-up" style="margin-top: 120px; padding: 60px 20px; text-align: center; background: rgba(255, 255, 255, 0.15); border-radius: 20px; box-shadow: 0 0 20px rgba(255, 192, 203, 0.4); max-width: 700px; margin-left: auto; margin-right: auto;">
+  <p style="font-family: 'Dancing Script', cursive; font-size: 2.2em; color: #fff; text-shadow: 1px 1px 6px rgba(0,0,0,0.6);">
+    Obrigado por viver esse amor comigo.<br>Te amo infinitamente! 💞
+  </p>
+  <button onclick="window.scrollTo({ top: 0, behavior: 'smooth' });" style="margin-top: 25px; padding: 12px 25px; font-size: 1.2em; background-color: #ff69b4; color: white; border: none; border-radius: 15px; cursor: pointer; box-shadow: 0 4px 12px rgba(255, 105, 180, 0.5); transition: transform 0.2s ease;">
+    Voltar ao início 💖
+  </button>
+</div>
+
+
+<!-- Espaço em branco final -->
+<div style="height: 120px; background: rgba(255, 255, 255, 0.1);"></div>
+
+</body>
+</html>
