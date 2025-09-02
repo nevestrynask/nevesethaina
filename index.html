@@ -153,29 +153,48 @@
 
   <h1>João e Thainá 💘</h1>
   <h2>Desde a primeira vez que te vi, meu coração bateu forte por você ❤</h2>
-  <div style="font-family: 'Dancing Script', cursive; font-size: 2em; margin-bottom: 10px;">
-    Eu sou completamente apaixonado por você há
+  <div id="contador-text" style="font-family: 'Dancing Script', cursive; font-size: 2em; margin-bottom: 10px;">
+    Faltam apenas para nosso primeiro ano de namoro:
   </div>
   <div id="contador" style="z-index: 2; position: relative;">Carregando...</div>
+  <div id="mensagem-aniversario" style="display: none; margin-top: 30px; padding: 20px; background: rgba(255, 192, 203, 0.3); border-radius: 15px; box-shadow: 0 0 10px rgba(255, 192, 203, 0.5);">
+      <h2 style="font-family: 'Great Vibes', cursive; font-size: 2em; color: #ffe0f0; text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);">
+          Feliz 1 Ano de Namoro, meu amor! 🎉
+      </h2>
+      <p style="font-size: 1.2em;">
+          Cada dia ao seu lado é uma nova alegria. Que venham muitos e muitos anos!
+      </p>
+  </div>
   
   <div class="hearts">💗 💖 💕 💞 💓</div>
 
 
   <script>
-    const dataInicial = new Date("2024-09-07T00:00:00");
+    const dataAniversario = new Date("2025-09-07T00:00:00");
+    const contadorElemento = document.getElementById("contador");
+    const contadorTextElemento = document.getElementById("contador-text");
+    const mensagemAniversarioElemento = document.getElementById("mensagem-aniversario");
 
     function atualizarContador() {
       const agora = new Date();
-      const diffMs = agora - dataInicial;
+      const diffMs = dataAniversario - agora;
 
-      const segundosTotais = Math.floor(diffMs / 1000);
-      const dias = Math.floor(segundosTotais / 86400);
-      const horas = Math.floor((segundosTotais % 86400) / 3600);
-      const minutos = Math.floor((segundosTotais % 3600) / 60);
-      const segundos = segundosTotais % 60;
+      if (diffMs <= 0) {
+          // A data do aniversário chegou ou já passou
+          contadorElemento.textContent = "Feliz 1 Ano de Namoro! ❤️";
+          contadorTextElemento.style.display = 'none';
+          mensagemAniversarioElemento.style.display = 'block';
+      } else {
+          // Contagem regressiva
+          const segundosTotais = Math.floor(diffMs / 1000);
+          const dias = Math.floor(segundosTotais / 86400);
+          const horas = Math.floor((segundosTotais % 86400) / 3600);
+          const minutos = Math.floor((segundosTotais % 3600) / 60);
+          const segundos = segundosTotais % 60;
 
-      document.getElementById("contador").textContent =
-        `${dias} dias, ${horas}h ${minutos}m ${segundos}s`;
+          contadorElemento.textContent =
+            `${dias} dias, ${horas}h ${minutos}m ${segundos}s`;
+      }
     }
 
     atualizarContador();
@@ -193,8 +212,7 @@
     </p>
   </div>
 
-  <!-- Espaço em branco final -->
-<div style="height: 120px; background: rgba(255, 255, 255, 0.1);"></div>
+  <div style="height: 120px; background: rgba(255, 255, 255, 0.1);"></div>
 
   <div class="carrossel">
     <div class="carrossel-container">
@@ -214,7 +232,6 @@
     </div>
   </div>
 
-  <!-- Cartinha de amor -->
   <div style="margin-top: 100px; padding: 60px 20px; background: rgba(83, 83, 83, 0.336); border-top: 2px dashed #ffc0cb70; max-width: 800px; border-radius: 20px;">
   <h2 style="font-family: 'Dancing Script', cursive; font-size: 2.8em; color: #ffe0f0; margin-bottom: 30px;">
     Uma cartinha só pra você, meu amor 💌
@@ -237,8 +254,7 @@ João
   </div>
 </div>
 
-  <!-- Corações caindo -->
-<canvas id="canvas-corações" style="position: fixed; top: 0; left: 0; pointer-events: none; z-index: 1;"></canvas>
+  <canvas id="canvas-corações" style="position: fixed; top: 0; left: 0; pointer-events: none; z-index: 1;"></canvas>
 <script>
   const canvas = document.getElementById("canvas-corações");
   const ctx = canvas.getContext("2d");
@@ -298,14 +314,12 @@ João
   Que bom que você chegou até aqui... 💖 Tenho algo mágico pra te mostrar ✨
 </div>
 
-<!-- Botão surpresa escondido -->
 <div style="margin-top: 60px; z-index: 2;">
   <button onclick="document.getElementById('pedido-casamento').style.display='block'; this.style.display='none';" style="padding: 15px 25px; font-size: 1.2em; background: #ff69b4; color: white; border: none; border-radius: 15px; cursor: pointer; box-shadow: 0 0 10px rgba(255,105,180,0.5);">
     Clique aqui se ama MUITO 💘
   </button>
 </div>
 
-<!-- Área escondida do pedido de casamento -->
 <div id="pedido-casamento" data-aos="zoom-in" style="display: none; position: relative; z-index: 3; padding: 60px 20px; background: rgba(255, 255, 255, 0.425); border-radius: 25px; margin: 60px auto; max-width: 550px; box-shadow: 0 0 25px rgba(255, 105, 180, 0.3); text-align: center;">
   <h2 style="color: #d8006e; font-family: 'Dancing Script', cursive; font-size: 2.8em; margin-bottom: 30px; text-shadow: 1px 1px 5px rgba(0,0,0,0.1);">
     Quer casar comigo? 💍
@@ -339,7 +353,6 @@ João
 
 </script>
 
-<!-- Citação final -->
 <div style="
   margin-top: 80px;
   padding: 40px 20px;
@@ -358,13 +371,11 @@ João
   <span style="font-size: 0.8em; display: block; margin-top: 10px;">— Jane Austen</span>
 </div>
 
-<!-- Imagem romântica central pequena -->
 <div style="text-align: center; margin: 60px 20px;">
   <img src="https://i.imgur.com/Kcwf1Ok.jpeg" alt="Nosso Amor" style="width: 250px; height: auto; border-radius: 20px; box-shadow: 0 8px 20px rgba(255, 105, 180, 0.3);">
 </div>
 
 
-<!-- Seção final destacada -->
 <div data-aos="fade-up" style="margin-top: 120px; padding: 60px 20px; text-align: center; background: rgba(255, 255, 255, 0.15); border-radius: 20px; box-shadow: 0 0 20px rgba(255, 192, 203, 0.4); max-width: 700px; margin-left: auto; margin-right: auto;">
   <p style="font-family: 'Dancing Script', cursive; font-size: 2.2em; color: #fff; text-shadow: 1px 1px 6px rgba(0,0,0,0.6);">
     Obrigado por viver esse amor comigo.<br>Te amo infinitamente! 💞
@@ -375,7 +386,6 @@ João
 </div>
 
 
-<!-- Espaço em branco final -->
 <div style="height: 120px; background: rgba(255, 255, 255, 0.1);"></div>
 
 </body>
