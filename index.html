@@ -213,11 +213,9 @@
         position: fixed;
         top: 0;
         left: 0;
-        width: 100%;
-        height: 100%;
+        display: none;
         z-index: 100;
         pointer-events: none;
-        display: none;
     }
   </style>
 </head>
@@ -241,17 +239,19 @@
     const mainTitle = document.getElementById("main-title");
     const contadorTextElement = document.getElementById("contador-text");
     const contadorElement = document.getElementById("contador");
+    let isCelebrating = false;
 
     function atualizarContador() {
       const agora = new Date();
       
       // Checa se o aniversário chegou
-      if (agora >= dataAniversario) {
+      if (agora >= dataAniversario && !isCelebrating) {
           mainTitle.textContent = "Feliz 1 Ano de Namoro, meu amor! 🎉";
           contadorTextElement.textContent = "O nosso primeiro ano juntos! ❤️";
           contadorElement.textContent = "";
           iniciarCelebracao();
-      } else {
+          isCelebrating = true;
+      } else if (!isCelebrating) {
           // Lógica do contador normal
           const diffMs = agora - dataInicial;
           const segundosTotais = Math.floor(diffMs / 1000);
@@ -288,4 +288,38 @@
       <img src="https://i.imgur.com/cWA0VkC.jpeg" alt="Foto 2">
       <img src="https://i.imgur.com/FhjNUJO.jpeg" alt="Foto 3">
       <img src="https://i.imgur.com/LP6IOel.jpeg" alt="Foto 4">
-      <img src="https://i.imgur.com/8tkdAJz.jpeg" alt="
+      <img src="https://i.imgur.com/8tkdAJz.jpeg" alt="Foto 5">
+      <img src="https://i.imgur.com/xgDoTk6.jpeg" alt="Foto 6">
+      <img src="https://i.imgur.com/VYPXM3a.jpeg" alt="Foto 7">
+      <img src="https://i.imgur.com/jOK1jFA.jpeg" alt="Foto 8">
+      <img src="https://i.imgur.com/75vCGnQ.jpeg" alt="Foto 9">
+      <img src="https://i.imgur.com/E7RI0KI.jpeg" alt="Foto 10">
+      <img src="https://i.imgur.com/UnQSYbY.jpeg" alt="Foto 11">
+      <img src="https://i.imgur.com/cCrdabj.jpeg" alt="Foto 12">
+      <img src="https://i.imgur.com/hv5LJ11.jpeg" alt="Foto 13">
+    </div>
+  </div>
+
+  <div class="fade-in" style="margin-top: 100px; padding: 60px 20px; background: rgba(83, 83, 83, 0.336); border-top: 2px dashed #ffc0cb70; max-width: 800px; border-radius: 20px;">
+  <h2 style="font-family: 'Dancing Script', cursive; font-size: 2.8em; color: #ffe0f0; margin-bottom: 30px;">
+    Uma cartinha só pra você, meu amor 💌
+  </h2>
+  <p style="font-family: 'Dancing Script', cursive; font-size: 1.7em; color: #fff; line-height: 1.8; text-align: justify; padding: 0 15px;">
+    Te conhecer foi como encontrar um pedaço do meu coração que eu nem sabia que estava faltando. Desde que você chegou, tudo mudou pra melhor. Seu jeito, seu carinho, suas risadas… tudo em você me encanta e me faz querer ser alguém melhor todos os dias.<br><br>
+
+Eu amo cada detalhe nosso — desde as conversas bobas até os silêncios confortáveis. Amo como a gente se entende com o olhar, como teu abraço é meu lugar favorito no mundo, e como seu sorriso tem o poder de acalmar qualquer tempestade.<br><br>
+
+Prometo cuidar de você com todo meu amor, respeitar teus sonhos, segurar tua mão nos dias bons e principalmente nos difíceis. Quero viver muitas histórias com você, criar lembranças, realizar planos, e principalmente: te fazer feliz.<br><br>
+
+Te amo mais do que palavras podem dizer. E isso só cresce, a cada dia, a cada detalhe, a cada “eu te amo” que sai do meu coração direto pro teu.<br><br>
+
+Com todo o meu amor,<br><br>
+João
+
+  </p>
+  <div style="margin-top: 30px; font-size: 2em; animation: pulse 1.5s infinite;">
+    ❤️
+  </div>
+</div>
+
+  <canvas id="canvas-corações" style="position: fixed; top: 0; left: 0; pointer-events: none; z-index:
